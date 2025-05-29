@@ -1,5 +1,6 @@
-import 'package:cat_breeds/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
+
+import 'features/presentation/pages/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
