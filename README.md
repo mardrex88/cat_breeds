@@ -31,4 +31,3 @@ Se implementó una arquitectura **Clean Architecture** con separación en capas:
 - **FutureBuilder**: para manejo de datos asíncronos en la UI.
 - **Widget personalizado**: para reutilización de componentes de información.
 
-## Estructura del proyecto
