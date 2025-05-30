@@ -16,9 +16,6 @@ class CatApiDatasource {
     List<CatBreed> breeds = [];
     for (var e in data) {
       final breed = CatBreed.fromJson(e);
-      if (breed.referenceImageId != null) {
-        breed.imageUrl = await fetchImageUrl(breed.referenceImageId!);
-      }
       breeds.add(breed);
     }
     return breeds;
@@ -49,9 +46,6 @@ class CatApiDatasource {
       List<CatBreed> breeds = [];
       for (var e in data) {
         final breed = CatBreed.fromJson(e);
-        if (breed.referenceImageId != null) {
-          breed.imageUrl = await fetchImageUrl(breed.referenceImageId!);
-        }
         breeds.add(breed);
       }
       return breeds;
