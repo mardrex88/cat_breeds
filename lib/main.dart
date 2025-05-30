@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (_) => BreedsBloc(CatApiDatasource())..add(LoadBreeds()),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: const SplashPage(),
       ),
     );

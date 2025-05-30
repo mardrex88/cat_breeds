@@ -107,6 +107,9 @@ class _HomePageState extends State<HomePage> {
                                               description: breed.description ?? '',
                                               origin: breed.origin ?? '',
                                               temperament: breed.temperament ?? '',
+                                              intelligence: breed.intelligence ?? 0,
+                                              adaptability: breed.adaptability ?? 0,
+                                              lifeSpan: breed.lifeSpan ?? '',
                                             ),
                                           ),
                                         );
@@ -122,11 +125,27 @@ class _HomePageState extends State<HomePage> {
                                     bottomLeft: Radius.circular(12),
                                     bottomRight: Radius.circular(12),
                                   ),
-                                  child: Image.network(
-                                    breed.imageUrl!,
-                                    height: 180,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
+                                  child: Column(
+                                    children: [
+                                      Image.network(
+                                        breed.imageUrl!,
+                                        height: 180,
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                        child: Row(
+                                          children: [
+                                            const Text(
+                                              'País de origen: ',
+                                              style: TextStyle(fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(breed.origin ?? ''),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                             ],
