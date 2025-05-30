@@ -1,16 +1,34 @@
-# cat_breeds
+# Cat Breeds App
 
-A new Flutter project.
+Aplicación Flutter para explorar razas de gatos, ver detalles y características de cada una, consumiendo la API pública de TheCatAPI.
 
-## Getting Started
+## Descripción
 
-This project is a starting point for a Flutter application.
+Este proyecto fue desarrollado como parte de un reto técnico. Permite buscar, listar y ver detalles de distintas razas de gatos, mostrando imágenes y descripciones relevantes.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías y dependencias
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter** (SDK >=3.0.0)
+- **Dart**
+- **flutter_bloc**: para gestión de estado
+- **http**: para consumo de APIs REST
+- **Equatable**: para comparación eficiente de estados
+- **TheCatAPI**: fuente de datos de razas e imágenes
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Arquitectura
+
+Se implementó una arquitectura **Clean Architecture** con separación en capas:
+
+- **Data**: datasources y modelos para acceso a la API.
+- **Domain**: entidades y casos de uso (use cases).
+- **Presentation**: widgets, páginas y lógica de UI.
+- **Bloc Pattern**: para la gestión de estado reactiva y desacoplada.
+
+## Patrones de diseño utilizados
+
+- **BLoC (Business Logic Component)**: separación de lógica de negocio y presentación.
+- **Repository Pattern**: para abstraer el acceso a datos.
+- **FutureBuilder**: para manejo de datos asíncronos en la UI.
+- **Widget personalizado**: para reutilización de componentes de información.
+
+## Estructura del proyecto
