@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../bloc/breeds_bloc.dart';
 import 'home_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,7 +16,12 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomePage()),
+          MaterialPageRoute(
+            builder: (context) => BlocProvider.value(
+              value: BlocProvider.of<BreedsBloc>(context),
+              child: const HomePage(),
+            ),
+          ),
       );
     });
   }

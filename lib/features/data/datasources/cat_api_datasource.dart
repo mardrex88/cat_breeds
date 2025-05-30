@@ -6,11 +6,11 @@ class CatApiDatasource {
   static const String _baseUrl = 'https://api.thecatapi.com/v1/breeds';
   static const String _apiKey = 'hbj2h4j2h34jh234jh234jh2b3h';
 
-Future<List<CatBreed>> fetchBreeds() async {
-  final response = await http.get(
-    Uri.parse('$_baseUrl?api_key=$_apiKey'),
-    headers: {'x-api-key': _apiKey},
-  );
+  Future<List<CatBreed>> fetchBreeds({int page = 0, int limit = 10}) async {
+    final response = await http.get(
+      Uri.parse('$_baseUrl?api_key=$_apiKey&limit=$limit&page=$page'),
+      headers: {'x-api-key': _apiKey},
+    );
   if (response.statusCode == 200) {
     final List data = json.decode(response.body);
     List<CatBreed> breeds = [];
