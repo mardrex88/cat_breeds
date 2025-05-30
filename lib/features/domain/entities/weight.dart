@@ -1,20 +1,10 @@
+// domain/entities/weight.dart
+  class Weight {
+    final String imperial;
+    final String metric;
 
-class Weight {
-  String imperial;
-  String metric;
-
-  Weight({
-    required this.imperial,
-    required this.metric,
-  });
-
-  factory Weight.fromJson(Map<String, dynamic> json) => Weight(
-    imperial: json["imperial"],
-    metric: json["metric"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "imperial": imperial,
-    "metric": metric,
-  };
-}
+    const Weight({
+      required this.imperial,
+      required this.metric,
+    });
+  }
