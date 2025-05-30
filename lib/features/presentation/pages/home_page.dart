@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-
+  bool _isSearching = false;
   @override
   void initState() {
     super.initState();
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
+    if (!_isSearching &&_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
       context.read<BreedsBloc>().add(LoadMoreBreeds());
     }
   }
@@ -51,6 +51,16 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
+              onChanged: (value){
+                setState(() {
+                  _isSearching = value.isNotEmpty;
+                });
+                if (value.isEmpty) {
+                  context.read<BreedsBloc>().add(LoadBreeds());
+                } else {
+                  context.read<BreedsBloc>().add(SearchBreeds(value));
+                }
+              },
             ),
           ),
           Expanded(

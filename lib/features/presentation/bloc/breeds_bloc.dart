@@ -5,6 +5,10 @@ import '../../data/datasources/cat_api_datasource.dart';
 abstract class BreedsEvent {}
 class LoadBreeds extends BreedsEvent {}
 class LoadMoreBreeds extends BreedsEvent {}
+class SearchBreeds extends BreedsEvent {
+  final String query;
+  SearchBreeds(this.query);
+}
 abstract class BreedsState {}
 class BreedsInitial extends BreedsState {}
 class BreedsLoading extends BreedsState {}
@@ -47,5 +51,16 @@ class BreedsBloc extends Bloc<BreedsEvent, BreedsState> {
         emit(BreedsError(e.toString()));
       }
     });
+    on<SearchBreeds>((event, emit) async {
+      emit(BreedsLoading());
+      try {
+        final breeds = await datasource.searchBreeds(event.query);
+        emit(BreedsLoaded(breeds));
+      } catch (e) {
+        emit(BreedsError('Error al buscar razas'));
+      }
+    });
   }
+
+
 }
