@@ -5,7 +5,7 @@ import '../../domain/entities/cat_breed.dart';
 
 class CatApiDatasource {
   static const String _baseUrl = 'https://api.thecatapi.com/v1/breeds';
-  static const String _apiKey = 'live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWky W2nr ';
+  static const String _apiKey = 'live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr';
 
   Future<List<CatBreed>> fetchBreeds({int page = 0, int limit = 10}) async {
     final response = await http.get(
